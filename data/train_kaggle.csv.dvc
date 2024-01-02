@@ -1,0 +1,5 @@
+outs:
+- md5: 5e4a20deaa6c28c546ddbae0793b85bb
+  size: 2642519
+  hash: md5
+  path: train_kaggle.csv
