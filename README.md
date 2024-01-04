@@ -47,7 +47,7 @@ dvc remote modify myremote gdrive_acknowledge_abuse true
 dvc push
 ```
 
-
+## Описание работы
 В результате работы train.py и infer.py происходит:
 - загрузка и предобработка данных
 - генерация новых фичей
