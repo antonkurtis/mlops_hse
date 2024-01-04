@@ -1,0 +1,35 @@
+path:
+      demand_train: 'data/train_kaggle.csv'
+      demand_test: 'data/test_kaggle.csv'
+      sub_sample: 'data/submission_sample.csv'
+      models: 'models'
+      predictions: 'data/predictions'
+
+feature_generation:
+      lags: [7, 7, 14, 31, 41]
+      rolls: [1, 3, 7, 7, 7]
+
+model:
+      target: 'Demand'
+      drop_columns: ['SKU_id','Demand','Store_id']
+
+constant:
+      predict_sku: 'SKU_id'
+      date_col: 'Date'
+
+mlflow:
+      logging: True
+      logging_uri: "http://127.0.0.1:8080"
+      experiment_name: "Predict 2 SKU"
+      tag_name: "catboost"
+      tag_value: "catboost model"
+      artifact_path: "2x catboost models"
+      registered_model_name: "catboost2sku"
+
+model_params:
+      iterations: 2500
+      best_model_min_trees: 25
+      verbose: 0
+      random_state: 13
+      loss_function: 'RMSE'
+      max_depth: 8
