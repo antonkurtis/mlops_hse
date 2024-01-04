@@ -9,7 +9,7 @@ git clone https://github.com/antonkurtis/mlops_hse.git
 
 cd mlops_hse
 
-conda create -n mlops python=3.9 -y -q        
+conda create -n mlops python=3.11 -y -q        
 
 conda activate mlops
 
