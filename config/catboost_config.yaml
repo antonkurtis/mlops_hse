@@ -1,0 +1,7 @@
+model_params:
+      iterations: 2500
+      best_model_min_trees: 25
+      verbose: 0
+      random_state: 13
+      loss_function: 'RMSE'
+      max_depth: 8

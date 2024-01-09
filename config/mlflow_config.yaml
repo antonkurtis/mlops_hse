@@ -1,0 +1,8 @@
+mlflow:
+      logging: True
+      logging_uri: "http://127.0.0.1:8080"
+      experiment_name: "Predict 2 SKU"
+      tag_name: "catboost"
+      tag_value: "catboost model"
+      artifact_path: "2x catboost models"
+      registered_model_name: "catboost2sku"
