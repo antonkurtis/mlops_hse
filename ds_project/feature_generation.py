@@ -1,6 +1,9 @@
 import pandas as pd
 
 def make_features(data, max_lag, rolling_mean_size):
+  '''
+  Функция генерирует лаговые и аггрегационные признаки
+  '''
   # генерим фичи
   # создаем лаги\агрегации
   for lag in range(1, max_lag + 1):
@@ -11,6 +14,10 @@ def make_features(data, max_lag, rolling_mean_size):
 
 
 def roll_agg_lag_features(new_data, lags, rolls):
+  '''
+  Функция преобразует фичи даты и поэтапно применяет генерацию
+  лаговых и агрегационных признаков
+  '''
   # создаем фичи из даты
   new_data["weekday"] = pd.to_numeric(new_data.Date.dt.weekday)
   new_data["monthday"] = pd.to_numeric(new_data.Date.dt.day)
@@ -26,7 +33,7 @@ def roll_agg_lag_features(new_data, lags, rolls):
   result = pd.DataFrame(columns = new_data.columns)
 
   for i in new_data['Store_id'].unique():
-    frames = new_data[new_data['Store_id']==i]#[41:]
+    frames = new_data[new_data['Store_id']==i]
     result = pd.concat([result, frames])
   
   return result.reset_index(drop=True)

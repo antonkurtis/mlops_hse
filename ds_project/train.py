@@ -10,8 +10,13 @@ import pandas as pd
 
 
 def main():
+    '''
+    Функция реализует полный пайплайн обучения модели
+    с предобработкой данных, генерацией фичей, обучением модели и
+    логированием эксперимента
+    '''
     # инициализируем конфиги
-    initialize(version_base=None, config_path="../configs")
+    initialize(version_base=None, config_path="../config")
     
     project_cfg = compose(config_name="project_config.yaml")
     mlflow_cfg = compose(config_name="mlflow_config.yaml")
@@ -33,7 +38,7 @@ def main():
     # определяем границу трейна-предикта, используем дату как индекс
     data_lagged_features.set_index(project_cfg["constant"]["date_col"], inplace = True)
 
-    # делим датасет на 2 по SKU (отключено ввиду упрощения, просто добавляем пару новых)
+    # делим датасет на 2 по SKU (отключено ввиду упрощения, просто добавляем пару новых фичей)
     data_lagged_features = split_sku(data_lagged_features)
 
     # инициализируем модель
